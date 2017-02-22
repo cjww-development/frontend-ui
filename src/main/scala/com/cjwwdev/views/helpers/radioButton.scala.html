@@ -1,0 +1,9 @@
+@import views.html.helper.FieldElements
+@(formItem: play.api.data.Field, value: String, args: (Symbol, Any)*)(implicit messages: Messages)
+
+@elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages)}
+
+<div class="form-group">
+    <input type="radio" name="@{elements.args('_name)}" id="@{elements.args('_id)}" value="@value" @if(formItem.value.contains(value)){ checked } />
+    <label class="cjww-radio" for="@{elements.args('_id)}">@{elements.args('_label)}</label>
+</div>
