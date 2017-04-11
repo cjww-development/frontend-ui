@@ -11,10 +11,10 @@ val btVersion: String = {
 
 name := "frontend-ui"
 version := btVersion
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.10"
 organization := "com.cjww-dev.libs"
 
-val codeDep: Seq[ModuleID] = Seq("com.typesafe.play" % "play_2.11" % "2.5.12")
+val codeDep: Seq[ModuleID] = Seq("com.typesafe.play" % "play_2.11" % "2.5.14")
 
 libraryDependencies ++= codeDep
 
