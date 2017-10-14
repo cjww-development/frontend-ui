@@ -1,4 +1,4 @@
-@(devPhase: String = com.typesafe.config.ConfigFactory.load.getString("cjww.dev-phase"))
+@(devPhase : String = com.typesafe.config.ConfigFactory.load.getString("cjww.dev-phase"))
 
 @determineWording = {
     @if(devPhase == "alpha" || devPhase == "open beta") {
@@ -22,3 +22,4 @@
         </div>
     </div>
 }
+

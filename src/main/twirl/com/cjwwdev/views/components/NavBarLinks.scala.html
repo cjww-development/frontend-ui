@@ -1,0 +1,9 @@
+@import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
+
+@(links: Seq[NavBarLinkBuilder])
+
+@for(linkConstructor <- links) {
+    <li>
+        <a href="@linkConstructor.link"><span class="glyphicon @linkConstructor.glyphicon" aria-hidden="true"></span> @linkConstructor.linkName</a>
+    </li>
+}

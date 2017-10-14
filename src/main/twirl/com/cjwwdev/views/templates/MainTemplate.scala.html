@@ -1,0 +1,17 @@
+@import com.cjwwdev.views.html.components.{Head, NavigationBar, DevelopmentBanner, Footer}
+@import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
+
+@(title: String, extraHeaders: Seq[Html], links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])(mainContent: Html)(implicit request: Request[_])
+
+<!DOCTYPE html>
+<html lang="en">
+    @Head(title, extraHeaders)
+
+    <body>
+        @NavigationBar(links, navBarRoutes)
+        @DevelopmentBanner()
+        @mainContent
+    </body>
+
+    @Footer()
+</html>
