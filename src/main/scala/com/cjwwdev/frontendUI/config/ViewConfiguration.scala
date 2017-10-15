@@ -21,9 +21,7 @@ import play.api.mvc.Call
 import play.twirl.api.Html
 
 trait ViewConfiguration {
-  implicit val extraHeaders: Seq[Html]
-
   implicit val serviceLinks: Seq[NavBarLinkBuilder]
 
-  implicit val standardNavBarRoutes: Map[String, Call]
+  implicit val routes: Map[String, Call]
 }

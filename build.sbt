@@ -31,4 +31,3 @@ bintrayOrganization                  := Some("cjww-development")
 bintrayReleaseOnPublish in ThisBuild := true
 bintrayRepository                    := "releases"
 bintrayOmitLicense                   := true
-    
