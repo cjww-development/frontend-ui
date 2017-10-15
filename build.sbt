@@ -28,7 +28,7 @@ libraryDependencies ++= codeDep
 resolvers += "cjww-dev" at "http://dl.bintray.com/cjww-development/releases"
 
 bintrayOrganization                  := Some("cjww-development")
-bintrayReleaseOnPublish in ThisBuild := false
+bintrayReleaseOnPublish in ThisBuild := true
 bintrayRepository                    := "releases"
 bintrayOmitLicense                   := true
     
