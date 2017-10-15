@@ -1,5 +1,5 @@
 @import views.html.helper.FieldElements
-@(formItem: play.api.data.Field, fieldName: String, isReadOnly: Boolean, args: (Symbol, Any)*)(implicit messages: Messages)
+@(formItem: play.api.data.Field, isReadOnly: Boolean, args: (Symbol, Any)*)(implicit messages: Messages)
 
 @elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages)}
 @disabled = {@if(isReadOnly){readOnly}}
