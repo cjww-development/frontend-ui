@@ -17,10 +17,10 @@
 package com.cjwwdev.frontendUI.config
 
 import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
+import play.api.i18n.{I18NSupportLowPriorityImplicits, I18nSupport}
 import play.api.mvc.Call
-import play.twirl.api.Html
 
-trait ViewConfiguration {
+trait ViewConfiguration extends I18NSupportLowPriorityImplicits with I18nSupport {
   implicit val serviceLinks: Seq[NavBarLinkBuilder]
 
   implicit val routes: Map[String, Call]

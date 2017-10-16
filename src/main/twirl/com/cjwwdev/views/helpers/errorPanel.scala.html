@@ -1,9 +1,9 @@
-@(form: Form[_])
+@(form: Form[_])(implicit messagesApi: MessagesApi)
 
 @if(form.hasErrors) {
     <div class="panel panel-danger">
         <div class="panel-heading">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>Something wasn't quite right...
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>@messagesApi("helpers.error-panel.heading")
         </div>
 
         <ul class="list-group">

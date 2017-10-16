@@ -1,0 +1,23 @@
+#Error screen messages
+error.template.heading              = Oops...
+error.template.try-again            = Please try again later
+
+error.template.not-found.body       = This page doesn''t exist
+
+error.template.server-error.heading = We are having some technical difficulties
+
+error.template.maintenance.heading  = We will be back soon
+
+
+#Helper messages
+helpers.error-panel.heading         = Something wasn''t quite right...
+
+#Navigation bar
+nav-bar.toggle.navigation           = Toggle navigation
+
+nav-bar.registration.register       = Register
+nav-bar.registration.individual     = As yourself
+nav-bar.registration.organisation   = As an organisation
+
+nav-bar.login                       = Login
+nav-bar.logout                      = Sign out
