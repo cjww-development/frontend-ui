@@ -5,7 +5,7 @@
 @disabled = {@if(isReadOnly){readOnly}}
 
 <div class="form-group">
-    <div class="input-group @if(formItem.hasErrors){ has-errors }">
+    <div class="input-group @if(formItem.hasErrors){ has-error }">
         <span class="@{elements.args('_sassClass)}" id="basic-addon1">@{elements.args('_label)}</span>
         <input type="@{elements.args('_inputType)}" class="form-control" placeholder="@{elements.args('_placeholder)}" aria-describedby="basic-addon1" id="@{elements.args('_fieldName)}" name="@{elements.args('_fieldName)}" value="@{formItem.value}" @{disabled} />
     </div>
