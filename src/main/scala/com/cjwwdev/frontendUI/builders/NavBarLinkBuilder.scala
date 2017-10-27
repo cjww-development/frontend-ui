@@ -16,4 +16,4 @@
 
 package com.cjwwdev.frontendUI.builders
 
-case class NavBarLinkBuilder(link: String, glyphicon: String, linkName: String)
+case class NavBarLinkBuilder(link: String, glyphicon: String, linkName: String, id: String)

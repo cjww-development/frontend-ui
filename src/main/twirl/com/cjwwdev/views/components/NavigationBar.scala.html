@@ -11,17 +11,17 @@
     case "organisation"     => s"Welcome, ${request.session("orgName")}"
 }}
 
-<nav class="@navBorder() navbar-default navbar-fixed-top">
+<nav id="main-navigation-bar" class="@navBorder() navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button id="reveal-mobile-nav" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">@messagesApi("nav-bar.toggle.navigation")</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
-                <img src="@{navBarRoutes("navBarLogo")}" width="100">
+            <a id="logo-home-nav-link" class="navbar-brand" href="/">
+                <img src="@{navBarRoutes("navBarLogo")}" width="100" alt="CJWW main logo">
             </a>
         </div>
 
@@ -34,29 +34,29 @@
             <ul class="nav navbar-nav navbar-right">
             @if(request.session.isEmpty) {
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> @messagesApi("nav-bar.registration.register") <span class="caret"></span></a>
+                    <a id="registration-dropdown-nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> @messagesApi("nav-bar.registration.register") <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="@{navBarRoutes("userRegister")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messagesApi("nav-bar.registration.individual")</a>
+                            <a id="user-registration-nav-link" href="@{navBarRoutes("userRegister")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messagesApi("nav-bar.registration.individual")</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="@{navBarRoutes("orgRegister")}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> @messagesApi("nav-bar.registration.organisation")</a>
+                            <a id="org-registration-nav-link" href="@{navBarRoutes("orgRegister")}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> @messagesApi("nav-bar.registration.organisation")</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="@{navBarRoutes("login")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messagesApi("nav-bar.login")</a>
+                    <a id="user-login-nav-link" href="@{navBarRoutes("login")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messagesApi("nav-bar.login")</a>
                 </li>
             } else {
                 <li>
-                    <a href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @welcomeText()</a>
+                    <a id="user-dashboard-nav-link" href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @welcomeText()</a>
                 </li>
                 <li>
                     <form class="navbar-form navbar-left" role="button" action="@{navBarRoutes("signOut")}">
                         <div class="form-group">
                             <div class="input-group">
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> @messagesApi("nav-bar.logout")</button>
+                                <button id="signout-nav-link" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> @messagesApi("nav-bar.logout")</button>
                             </div>
                         </div>
                     </form>
