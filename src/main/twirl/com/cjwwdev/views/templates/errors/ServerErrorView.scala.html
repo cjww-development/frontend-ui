@@ -1,7 +1,7 @@
 @import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
 @import com.cjwwdev.views.html.templates.MainTemplate
 
-@()(implicit request: Request[_], messagesApi: MessagesApi, links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])
+@()(implicit request: Request[_], messages: Messages, links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])
 
 @MainTemplate(title = "There was a problem", links, navBarRoutes) {
     <div class="top-block-single">
@@ -19,10 +19,10 @@
 
                 <div class="col-md-8 col-sm-8 col-xs-12">
                     <div class="page-header">
-                        <h1 id="main-heading" class="pageTitle">@messagesApi("error.template.server-error.heading")</h1>
+                        <h1 id="main-heading" class="pageTitle">@messages("error.template.server-error.heading")</h1>
                     </div>
 
-                    <p id="error-message">@messagesApi("error.template.try-again")</p>
+                    <p id="error-message">@messages("error.template.try-again")</p>
                 </div>
             </div>
         </div>
