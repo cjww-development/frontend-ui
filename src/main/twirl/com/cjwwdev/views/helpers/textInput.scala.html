@@ -1,7 +1,7 @@
 @import views.html.helper.FieldElements
-@(formItem: play.api.data.Field, isReadOnly: Boolean, args: (Symbol, Any)*)(implicit messages: Messages)
+@(formItem: play.api.data.Field, isReadOnly: Boolean, args: (Symbol, Any)*)(implicit messages: MessagesApi, lang: Lang, request: Request[_])
 
-@elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages)}
+@elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages.preferred(request))}
 @disabled = {@if(isReadOnly){readOnly}}
 
 @formVal={@if(formItem.value.contains("/account-services/assets/images/background.jpg")){}else{@{formItem.value}}}

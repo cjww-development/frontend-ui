@@ -1,7 +1,7 @@
 @import com.typesafe.config.ConfigFactory
 @import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
 
-@(links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])(implicit request : Request[_], messages: Messages)
+@(links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])(implicit request : Request[_], messages: MessagesApi, lang: Lang)
 
 @navBorder() = {@if(ConfigFactory.load().getString("cjww.dev-phase") == "live") {navbar-with-border} else {navbar}}
 

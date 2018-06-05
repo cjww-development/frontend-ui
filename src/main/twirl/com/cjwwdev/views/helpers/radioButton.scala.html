@@ -1,7 +1,7 @@
 @import views.html.helper.FieldElements
-@(formItem: play.api.data.Field, value: String, args: (Symbol, Any)*)(implicit messages: Messages)
+@(formItem: play.api.data.Field, value: String, args: (Symbol, Any)*)(implicit messages: MessagesApi, lang: Lang, request: Request[_])
 
-@elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages)}
+@elements = @{FieldElements(formItem.id, formItem, null, args.toMap, messages.preferred(request))}
 
 <div class="form-group">
     <input type="radio" name="@{elements.args('_name)}" id="@{elements.args('_id)}" value="@value" @if(formItem.value.contains(value)){ checked } />
