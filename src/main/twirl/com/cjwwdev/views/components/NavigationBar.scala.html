@@ -5,10 +5,13 @@
 
 @navBorder() = {@if(ConfigFactory.load().getString("cjww.dev-phase") == "live") {navbar-with-border} else {navbar}}
 
-@welcomeText() = @{request.session("credentialType") match {
-    case "individual"       => s"Welcome, ${request.session("firstName")} ${request.session("lastName")}"
-    case "organisation"     => s"Welcome, ${request.session("orgName")}"
-}}
+@welcomeText() = @{
+    request.session.get("credentialType") match {
+        case Some("individual")   => s"Welcome, ${request.session("firstName")} ${request.session("lastName")}"
+        case Some("organisation") => s"Welcome, ${request.session("orgName")}"
+        case None                 => s"Welcome, ${request.session("username")}"
+    }
+}
 
 <nav id="main-navigation-bar" class="@navBorder() navbar-default navbar-fixed-top">
     <div class="container-fluid">
