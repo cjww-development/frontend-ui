@@ -3,14 +3,7 @@
 
 @(links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])(implicit request : Request[_], messages: MessagesApi, lang: Lang)
 
-@navBorder() = {@if(ConfigFactory.load().getString("cjww.dev-phase") == "live") {navbar-with-border} else {navbar}}
-
-@welcomeText() = @{request.session("credentialType") match {
-    case "individual"       => s"Welcome, ${request.session("firstName")} ${request.session("lastName")}"
-    case "organisation"     => s"Welcome, ${request.session("orgName")}"
-}}
-
-<nav id="main-navigation-bar" class="@navBorder() navbar-default navbar-fixed-top">
+<nav id="main-navigation-bar" class="navbar-with-border navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button id="reveal-mobile-nav" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -32,24 +25,12 @@
 
             <ul class="nav navbar-nav navbar-right">
             @if(request.session.isEmpty) {
-                <li class="dropdown">
-                    <a id="registration-dropdown-nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> @messages("nav-bar.registration.register") <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a id="user-registration-nav-link" href="@{navBarRoutes("userRegister")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messages("nav-bar.registration.individual")</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li>
-                            <a id="org-registration-nav-link" href="@{navBarRoutes("orgRegister")}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> @messages("nav-bar.registration.organisation")</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
+                    <li>
                     <a id="user-login-nav-link" href="@{navBarRoutes("login")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @messages("nav-bar.login")</a>
                 </li>
             } else {
                 <li>
-                    <a id="user-dashboard-nav-link" href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> @welcomeText()</a>
+                    <a id="user-dashboard-nav-link" href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Welcome, @{request.session("firstName")} @{request.session("lastName")}</a>
                 </li>
                 <li>
                     <form class="navbar-form navbar-left" role="button" action="@{navBarRoutes("signOut")}">
