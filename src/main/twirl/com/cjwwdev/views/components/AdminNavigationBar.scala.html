@@ -30,7 +30,7 @@
                 </li>
             } else {
                 <li>
-                    <a id="user-dashboard-nav-link" href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Welcome, @{request.session("firstName")} @{request.session("lastName")}</a>
+                    <a id="user-dashboard-nav-link" href="@{navBarRoutes("dashboard")}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Welcome, @{request.session("username")}</a>
                 </li>
                 <li>
                     <form class="navbar-form navbar-left" role="button" action="@{navBarRoutes("signOut")}">
