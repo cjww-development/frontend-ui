@@ -1,0 +1,16 @@
+@import com.cjwwdev.views.html.components.{Head, AdminNavigationBar, Footer}
+@import com.cjwwdev.frontendUI.builders.NavBarLinkBuilder
+
+@(title: String, links: Seq[NavBarLinkBuilder], navBarRoutes: Map[String, Call])(mainContent: Html)(implicit request: Request[_], messages: MessagesApi, lang: Lang)
+
+<!DOCTYPE html>
+<html lang="en">
+    @Head(title, navBarRoutes)
+
+    <body>
+        @AdminNavigationBar(links, navBarRoutes)
+        @mainContent
+    </body>
+
+    @Footer()
+</html>
